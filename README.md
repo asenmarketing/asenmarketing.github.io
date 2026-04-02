@@ -1,1 +1,1 @@
-Widget script and docs for Asen Marketing Web Chat
+Asen Marketing scripts and code
