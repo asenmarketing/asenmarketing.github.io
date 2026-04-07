@@ -183,7 +183,7 @@ window.AsenChatConfig = {
       word-break: break-word;
     }
 
-    .asen-chat-message a {
+    .asen-chat-message a:not(.asen-chat-link) {
       color: var(--asen-chat-accent);
       text-decoration: underline;
     }
