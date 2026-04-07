@@ -250,7 +250,7 @@ window.AsenChatConfig = {
       box-shadow: 0 0 0 3px rgba(0,0,0,.08);
     }
 
-    .asen-chat-send {
+    body button[type="submit"].asen-chat-send {
       appearance: none;
       border: 0;
       border-radius: 12px;
