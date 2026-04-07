@@ -1,22 +1,46 @@
+{
+  /* <script>
+window.AsenChatConfig = {
+  apiUrl: "LAMBDA_URL", // Replace with your API endpoint
+  siteName: "Asen Marketing",
+  title: "Chat with SITE_NAME",
+  launcherLabel: "Chat",
+  welcomeMessage: "Hi! Ask us about our services, websites, SEO, or how to get started.",
+  placeholder: "Type your question...",
+  servicesUrl: "https://asenmarketing.com/services",
+  contactUrl: "https://asenmarketing.com/contact",
+  primaryColor: "#111111",
+  accentColor: "#ffffff",
+  position: "right",
+  zIndex: 999999,
+  maxWidth: "380px"
+};
+</script>
+<script src="https://asenmarketing.github.io/asen-chat-widget.js" defer></script> */
+}
+
 (function () {
   if (window.AsenChatWidgetLoaded) return;
   window.AsenChatWidgetLoaded = true;
 
-  var config = Object.assign({
-    apiUrl: "",
-    siteName: "Website Assistant",
-    title: "Chat",
-    launcherLabel: "Chat",
-    welcomeMessage: "Hi! How can I help?",
-    placeholder: "Ask a question...",
-    servicesUrl: "",
-    contactUrl: "",
-    primaryColor: "#111111",
-    accentColor: "#ffffff",
-    position: "right",
-    zIndex: 999999,
-    maxWidth: "380px"
-  }, window.AsenChatConfig || {});
+  var config = Object.assign(
+    {
+      apiUrl: "",
+      siteName: "Website Assistant",
+      title: "Chat",
+      launcherLabel: "Chat",
+      welcomeMessage: "Hi! How can I help?",
+      placeholder: "Ask a question...",
+      servicesUrl: "",
+      contactUrl: "",
+      primaryColor: "#111111",
+      accentColor: "#ffffff",
+      position: "right",
+      zIndex: 999999,
+      maxWidth: "380px",
+    },
+    window.AsenChatConfig || {},
+  );
 
   if (!config.apiUrl) {
     console.warn("Asen Chat Widget: Missing apiUrl in window.AsenChatConfig");
@@ -26,7 +50,7 @@
   var state = {
     isOpen: false,
     isSending: false,
-    sessionId: null
+    sessionId: null,
   };
 
   var style = document.createElement("style");
@@ -336,7 +360,7 @@
   function linkify(text) {
     return escapeHtml(text).replace(
       /(https?:\/\/[^\s<]+)/g,
-      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
     );
   }
 
@@ -366,8 +390,10 @@
 
   function buildWelcomeLinks() {
     var links = [];
-    if (config.servicesUrl) links.push({ label: "Explore Services", url: config.servicesUrl });
-    if (config.contactUrl) links.push({ label: "Contact Us", url: config.contactUrl });
+    if (config.servicesUrl)
+      links.push({ label: "Explore Services", url: config.servicesUrl });
+    if (config.contactUrl)
+      links.push({ label: "Contact Us", url: config.contactUrl });
     return links;
   }
 
@@ -443,31 +469,36 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: message,
-          sessionId: state.sessionId
-        })
+          sessionId: state.sessionId,
+        }),
       });
 
-      var data = await res.json().catch(function () { return {}; });
+      var data = await res.json().catch(function () {
+        return {};
+      });
 
       if (!res.ok) {
         throw new Error(data.error || "Something went wrong.");
       }
 
-      if (typingEl && typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+      if (typingEl && typingEl.parentNode)
+        typingEl.parentNode.removeChild(typingEl);
 
       state.sessionId = data.sessionId || state.sessionId;
 
       addBotMessage(
         data.answer || "Sorry — I wasn’t able to generate a response.",
-        Array.isArray(data.links) ? data.links : []
+        Array.isArray(data.links) ? data.links : [],
       );
     } catch (err) {
-      if (typingEl && typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+      if (typingEl && typingEl.parentNode)
+        typingEl.parentNode.removeChild(typingEl);
 
       addBotMessage(
         "Sorry — I’m having trouble right now. Please try again, or contact the team directly at " +
-        (config.contactUrl || "#") + ".",
-        buildWelcomeLinks()
+          (config.contactUrl || "#") +
+          ".",
+        buildWelcomeLinks(),
       );
       console.error("Asen Chat Widget error:", err);
     } finally {
