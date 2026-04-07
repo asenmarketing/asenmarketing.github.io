@@ -68,7 +68,6 @@ window.AsenChatConfig = {
       --asen-chat-bot-text: #111827;
       --asen-chat-shadow: 0 12px 30px rgba(0,0,0,.16);
       --asen-chat-radius: 16px;
-      --asen-chat-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
       font-family: var(--asen-chat-font);
       position: fixed;
@@ -135,14 +134,14 @@ window.AsenChatConfig = {
 
     .asen-chat-header-title {
       margin: 0;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 700;
       line-height: 1.2;
     }
 
     .asen-chat-header-subtitle {
       margin: 4px 0 0;
-      font-size: 12px;
+      font-size: 16px;
       opacity: .9;
     }
 
@@ -153,7 +152,7 @@ window.AsenChatConfig = {
       color: inherit;
       cursor: pointer;
       font: inherit;
-      font-size: 20px;
+      font-size: 26px;
       line-height: 1;
       padding: 0;
     }
@@ -178,10 +177,15 @@ window.AsenChatConfig = {
       max-width: 85%;
       border-radius: 16px;
       padding: 12px 14px;
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
+    }
+
+    .asen-chat-message a {
+      color: var(--asen-chat-accent);
+      text-decoration: underline;
     }
 
     .asen-chat-message-row.is-user .asen-chat-message {
@@ -210,10 +214,10 @@ window.AsenChatConfig = {
       text-decoration: none;
       border: 1px solid var(--asen-chat-border);
       background: #fff;
-      color: var(--asen-chat-primary);
+      color: var(--asen-chat-accent);
       padding: 8px 10px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 600;
     }
 
@@ -233,9 +237,9 @@ window.AsenChatConfig = {
       min-width: 0;
       border: 1px solid var(--asen-chat-border);
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 0.5rem;
       font: inherit;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--asen-chat-text);
       background: #fff;
     }
@@ -252,9 +256,10 @@ window.AsenChatConfig = {
       border-radius: 12px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
-      padding: 0 14px;
+      padding: 0.5rem;
       font: inherit;
       font-weight: 700;
+      font-size: 16px;
       cursor: pointer;
       white-space: nowrap;
     }
