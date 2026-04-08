@@ -259,8 +259,8 @@ window.AsenChatConfig = {
       border: 0;
       border-radius: 12px;
       background: var(--asen-chat-primary);
-      color: var(--asen-chat-text);
-      padding: 0.5rem;
+      color: var(--asen-chat-accent);
+      padding: 0.5rem 1rem;
       font: inherit;
       font-weight: 500;
       font-size: 16px !important;
