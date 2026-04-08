@@ -130,6 +130,7 @@ window.AsenChatConfig = {
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      position: relative;
     }
 
     .asen-chat-header-title {
@@ -155,6 +156,9 @@ window.AsenChatConfig = {
       font-size: 26px;
       line-height: 1;
       padding: 0;
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
     }
 
     .asen-chat-messages {
