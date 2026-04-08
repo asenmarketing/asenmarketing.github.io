@@ -204,7 +204,7 @@ window.AsenChatConfig = {
       margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 3px;
     }
 
     .asen-chat-link {
@@ -219,6 +219,10 @@ window.AsenChatConfig = {
       border-radius: 999px;
       font-size: 16px;
       font-weight: 600;
+    }
+
+    .asen-chat-link:hover {
+      color: var(--asen-chat-accent);
     }
 
     .asen-chat-form {
@@ -255,7 +259,7 @@ window.AsenChatConfig = {
       border: 0;
       border-radius: 12px;
       background: var(--asen-chat-primary);
-      color: var(--asen-chat-accent);
+      color: var(--asen-chat-text);
       padding: 0.5rem;
       font: inherit;
       font-weight: 700;
