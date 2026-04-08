@@ -223,7 +223,7 @@ window.AsenChatConfig = {
       padding: 8px 10px;
       border-radius: 11px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 400;
       width: 100%;
       text-align: center;
     }
