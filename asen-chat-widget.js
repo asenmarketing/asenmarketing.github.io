@@ -207,6 +207,7 @@ window.AsenChatConfig = {
     .asen-chat-links {
       margin-top: 10px;
       display: flex;
+      flex-direction: column;
       flex-wrap: wrap;
       gap: 3px;
     }
