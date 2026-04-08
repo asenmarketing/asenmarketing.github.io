@@ -215,21 +215,22 @@ window.AsenChatConfig = {
     .asen-chat-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       text-decoration: none;
       border: 1px solid var(--asen-chat-border);
       background: #fff;
       color: var(--asen-chat-accent);
       padding: 8px 10px;
-      border-radius: 11px;
+      border-radius: 16px;
       font-size: 16px;
-      font-weight: 400;
+      font-weight: 500;
       width: 100%;
-      text-align: center;
     }
 
     .asen-chat-link:hover {
-      color: var(--asen-chat-accent);
+      color: #fff;
+      background: var(--asen-chat-accent);
     }
 
     .asen-chat-form {
