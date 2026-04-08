@@ -220,9 +220,10 @@ window.AsenChatConfig = {
       background: #fff;
       color: var(--asen-chat-accent);
       padding: 8px 10px;
-      border-radius: 999px;
+      border-radius: 11px;
       font-size: 16px;
       font-weight: 600;
+      width: 100%;
     }
 
     .asen-chat-link:hover {
