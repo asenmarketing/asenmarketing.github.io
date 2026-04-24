@@ -290,7 +290,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-typing {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 4px;
