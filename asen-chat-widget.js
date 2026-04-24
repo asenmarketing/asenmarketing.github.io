@@ -13,7 +13,8 @@ window.AsenChatConfig = {
   accentColor: "#ffffff",
   position: "right",
   zIndex: 999999,
-  maxWidth: "380px"
+  maxWidth: "380px",
+  useLinks: true
 };
 </script>
 <script src="https://asenmarketing.github.io/asen-chat-widget.js" defer></script> */
@@ -38,6 +39,7 @@ window.AsenChatConfig = {
       position: "right",
       zIndex: 999999,
       maxWidth: "380px",
+      useLinks: false,
     },
     window.AsenChatConfig || {},
   );
@@ -406,6 +408,7 @@ window.AsenChatConfig = {
   }
 
   function buildWelcomeLinks() {
+    if (config.useLinks === false) return [];
     var links = [];
     if (config.servicesUrl)
       links.push({ label: "Explore Services", url: config.servicesUrl });
