@@ -183,7 +183,7 @@ window.AsenChatConfig = {
       max-width: 85%;
       border-radius: 16px;
       padding: 12px 14px;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
