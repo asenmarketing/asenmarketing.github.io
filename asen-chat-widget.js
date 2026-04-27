@@ -333,6 +333,7 @@ window.AsenChatConfig = {
   `;
   document.head.appendChild(style);
 
+  console.log("Asen Chat Widget initialized with config:", config);
   var root = document.createElement("div");
   root.className = "asen-chat-widget";
   root.innerHTML = `
@@ -487,7 +488,6 @@ window.AsenChatConfig = {
     var typingEl = addTyping();
 
     try {
-      console.log("Asen Chat Widget: Sending message:", message);
       var res = await fetch(config.apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
