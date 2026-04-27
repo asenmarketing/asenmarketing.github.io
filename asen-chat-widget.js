@@ -450,6 +450,8 @@ window.AsenChatConfig = {
     return row;
   }
 
+  var chatMessages = [];
+
   function addUserMessage(text) {
     return addMessage("user", linkify(text));
   }
@@ -490,7 +492,7 @@ window.AsenChatConfig = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: message,
-          // sessionId: state.sessionId,
+          messages: chatMessages.slice(-10),
         }),
       });
 
