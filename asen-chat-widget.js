@@ -360,7 +360,7 @@ window.AsenChatConfig = {
   `;
   document.body.appendChild(root);
 
-  consolre.log("Asen Chat Widget initialized with config:", config);
+  console.log("Asen Chat Widget initialized with config:", config);
 
   var launcher = root.querySelector(".asen-chat-launcher");
   var panel = root.querySelector(".asen-chat-panel");
