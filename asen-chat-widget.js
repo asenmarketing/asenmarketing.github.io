@@ -368,19 +368,6 @@ window.AsenChatConfig = {
   var input = root.querySelector(".asen-chat-input");
   var sendBtn = root.querySelector(".asen-chat-send");
 
-  var leadContext = {
-    name: null,
-    businessName: null,
-    website: null,
-    email: null,
-    phone: null,
-    marketingNeeds: [],
-    servicesInterestedIn: [],
-    goals: null,
-    budget: null,
-    timeline: null,
-  };
-
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, "&amp;")
@@ -465,6 +452,19 @@ window.AsenChatConfig = {
 
   var chatMessages = [];
 
+  var leadContext = {
+    name: null,
+    businessName: null,
+    website: null,
+    email: null,
+    phone: null,
+    marketingNeeds: [],
+    servicesInterestedIn: [],
+    goals: null,
+    budget: null,
+    timeline: null,
+  };
+
   function addUserMessage(text) {
     chatMessages.push({ role: "user", content: text });
     return addMessage("user", linkify(text));
@@ -518,6 +518,10 @@ window.AsenChatConfig = {
 
       if (!res.ok) {
         throw new Error(data.error || "Something went wrong.");
+      }
+
+      if (data.leadContext) {
+        leadContext = Object.assign({}, leadContext, data.leadContext);
       }
 
       if (typingEl && typingEl.parentNode)
