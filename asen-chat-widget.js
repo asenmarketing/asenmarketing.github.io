@@ -333,7 +333,6 @@ window.AsenChatConfig = {
   `;
   document.head.appendChild(style);
 
-  console.log("Asen Chat Widget initialized with config:", config);
   var root = document.createElement("div");
   root.className = "asen-chat-widget";
   root.innerHTML = `
