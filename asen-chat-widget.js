@@ -509,7 +509,7 @@ window.AsenChatConfig = {
 
       addBotMessage(
         data.answer || "Sorry — I wasn’t able to generate a response.",
-        Array.isArray(data.links) ? data.links : [],
+        Array.isArray(data.links) && config.useLinks ? data.links : [],
       );
     } catch (err) {
       if (typingEl && typingEl.parentNode)
