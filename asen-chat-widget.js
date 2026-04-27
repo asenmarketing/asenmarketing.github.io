@@ -360,8 +360,6 @@ window.AsenChatConfig = {
   `;
   document.body.appendChild(root);
 
-  console.log("Asen Chat Widget initialized with config:", config);
-
   var launcher = root.querySelector(".asen-chat-launcher");
   var panel = root.querySelector(".asen-chat-panel");
   var closeBtn = root.querySelector(".asen-chat-close");
@@ -369,6 +367,19 @@ window.AsenChatConfig = {
   var form = root.querySelector(".asen-chat-form");
   var input = root.querySelector(".asen-chat-input");
   var sendBtn = root.querySelector(".asen-chat-send");
+
+  var leadContext = {
+    name: null,
+    businessName: null,
+    website: null,
+    email: null,
+    phone: null,
+    marketingNeeds: [],
+    servicesInterestedIn: [],
+    goals: null,
+    budget: null,
+    timeline: null,
+  };
 
   function escapeHtml(str) {
     return String(str)
@@ -497,6 +508,7 @@ window.AsenChatConfig = {
         body: JSON.stringify({
           message: message,
           messages: chatMessages.slice(-10),
+          leadContext,
         }),
       });
 
