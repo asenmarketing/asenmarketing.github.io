@@ -183,7 +183,7 @@ window.AsenChatConfig = {
       max-width: 85%;
       border-radius: 16px;
       padding: 12px 14px;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
@@ -490,7 +490,7 @@ window.AsenChatConfig = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: message,
-          sessionId: state.sessionId,
+          // sessionId: state.sessionId,
         }),
       });
 
