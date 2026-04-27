@@ -487,6 +487,7 @@ window.AsenChatConfig = {
     var typingEl = addTyping();
 
     try {
+      console.log("Asen Chat Widget: Sending message:", message);
       var res = await fetch(config.apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
