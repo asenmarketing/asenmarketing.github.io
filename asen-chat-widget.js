@@ -360,6 +360,8 @@ window.AsenChatConfig = {
   `;
   document.body.appendChild(root);
 
+  consolre.log("Asen Chat Widget initialized with config:", config
+
   var launcher = root.querySelector(".asen-chat-launcher");
   var panel = root.querySelector(".asen-chat-panel");
   var closeBtn = root.querySelector(".asen-chat-close");
@@ -453,10 +455,12 @@ window.AsenChatConfig = {
   var chatMessages = [];
 
   function addUserMessage(text) {
+    chatMessages.push({ role: "user", content: text });
     return addMessage("user", linkify(text));
   }
 
   function addBotMessage(text, links) {
+    chatMessages.push({ role: "assistant", content: text });
     return addMessage("bot", linkify(text), links);
   }
 
