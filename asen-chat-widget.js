@@ -390,7 +390,7 @@ window.AsenChatConfig = {
     state.isOpen = true;
     root.classList.add("is-open");
     if (!messagesEl.dataset.initialized) {
-      addBotMessage(config.welcomeMessage, buildWelcomeLinks());
+      addMessage("bot", linkify(config.welcomeMessage), buildWelcomeLinks());
       messagesEl.dataset.initialized = "true";
     }
     setTimeout(function () {
