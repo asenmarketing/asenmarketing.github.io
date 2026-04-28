@@ -418,19 +418,6 @@ window.AsenChatConfig = {
     return links;
   }
 
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      if (e.shiftKey) {
-        // Allow newline
-        return;
-      }
-
-      // Prevent newline + submit message
-      e.preventDefault();
-      sendMessage();
-    }
-  });
-
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
@@ -538,6 +525,10 @@ window.AsenChatConfig = {
         return {};
       });
 
+      if (typingEl && typingEl.parentNode) {
+        typingEl.parentNode.removeChild(typingEl);
+      }
+
       if (!res.ok) {
         console.error("Asen Chat API error:", {
           status: res.status,
@@ -566,9 +557,6 @@ window.AsenChatConfig = {
           return;
         }
       }
-
-      if (typingEl && typingEl.parentNode)
-        typingEl.parentNode.removeChild(typingEl);
 
       state.sessionId = data.sessionId || state.sessionId;
 
@@ -603,3 +591,18 @@ window.AsenChatConfig = {
     sendMessage(message);
   });
 })();
+
+input.addEventListener("keydown", function (e) {
+  if (e.key !== "Enter") return;
+
+  if (e.shiftKey) {
+    return; // allow line break
+  }
+
+  e.preventDefault();
+
+  var message = (input.value || "").trim();
+  if (!message) return;
+
+  sendMessage(message);
+});
