@@ -590,19 +590,19 @@ window.AsenChatConfig = {
     if (!message) return;
     sendMessage(message);
   });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+
+    if (e.shiftKey) {
+      return; // allow line break
+    }
+
+    e.preventDefault();
+
+    var message = (input.value || "").trim();
+    if (!message) return;
+
+    sendMessage(message);
+  });
 })();
-
-input.addEventListener("keydown", function (e) {
-  if (e.key !== "Enter") return;
-
-  if (e.shiftKey) {
-    return; // allow line break
-  }
-
-  e.preventDefault();
-
-  var message = (input.value || "").trim();
-  if (!message) return;
-
-  sendMessage(message);
-});
