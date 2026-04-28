@@ -418,6 +418,28 @@ window.AsenChatConfig = {
     return links;
   }
 
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      if (e.shiftKey) {
+        // Allow newline
+        return;
+      }
+
+      // Prevent newline + submit message
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function isValidPhone(phone) {
+    const digits = phone.replace(/\D/g, "");
+    return digits.length >= 10 && digits.length <= 15;
+  }
+
   function addMessage(role, html, links) {
     var row = document.createElement("div");
     row.className = "asen-chat-message-row is-" + role;
@@ -527,6 +549,22 @@ window.AsenChatConfig = {
 
       if (data.leadContext) {
         leadContext = Object.assign({}, leadContext, data.leadContext);
+
+        if (leadContext.email && !isValidEmail(leadContext.email)) {
+          addMessage(
+            "bot",
+            "That email doesn’t look quite right — can you double check it?",
+          );
+          return;
+        }
+
+        if (leadContext.phone && !isValidPhone(leadContext.phone)) {
+          addMessage(
+            "bot",
+            "Can you share a valid phone number? Just the digits is fine.",
+          );
+          return;
+        }
       }
 
       if (typingEl && typingEl.parentNode)
