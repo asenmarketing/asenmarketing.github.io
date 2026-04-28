@@ -517,6 +517,11 @@ window.AsenChatConfig = {
       });
 
       if (!res.ok) {
+        console.error("Asen Chat API error:", {
+          status: res.status,
+          response: data,
+        });
+
         throw new Error(data.error || "Something went wrong.");
       }
 
