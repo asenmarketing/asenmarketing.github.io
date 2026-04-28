@@ -548,7 +548,7 @@ window.AsenChatConfig = {
           ".",
         buildWelcomeLinks(),
       );
-      console.error("Asen Chat Widget error:", err);
+      console.error("Asen Chat Widget error:", err.message, err);
     } finally {
       setSending(false);
       input.focus();
