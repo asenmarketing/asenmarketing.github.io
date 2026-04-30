@@ -315,12 +315,17 @@ window.AsenChatConfig = {
     .asen-chat-quick-reply {
       border: 1px solid var(--asen-chat-border);
       background: #fff;
-      color: var(--asen-chat-primary);
+      color: var(--asen-chat-accent);
       border-radius: 999px;
       padding: 8px 10px;
       font: inherit;
       font-size: 14px;
       cursor: pointer;
+    }
+    
+    .asen-chat-quick-reply:hover {
+      color: #fff;
+      background: var(--asen-chat-accent);
     }
 
     .asen-chat-typing-dot:nth-child(2) { animation-delay: .15s; }
