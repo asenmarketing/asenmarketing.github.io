@@ -493,6 +493,7 @@ window.AsenChatConfig = {
         btn.className = "asen-chat-quick-reply";
         btn.textContent = reply.label;
         btn.addEventListener("click", function () {
+          clearQuickReplies();
           sendMessage(reply.value || reply.label);
         });
         quickWrap.appendChild(btn);
