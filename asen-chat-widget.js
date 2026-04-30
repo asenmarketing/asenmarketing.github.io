@@ -431,6 +431,13 @@ window.AsenChatConfig = {
     input.disabled = isSending;
   }
 
+  function clearQuickReplies() {
+    var quickReplyGroups = root.querySelectorAll(".asen-chat-quick-replies");
+    quickReplyGroups.forEach(function (group) {
+      group.remove();
+    });
+  }
+
   function buildWelcomeLinks() {
     if (config.useLinks === false) return [];
     var links = [];
@@ -544,6 +551,8 @@ window.AsenChatConfig = {
 
   async function sendMessage(message) {
     if (!message || state.isSending) return;
+
+    clearQuickReplies();
 
     addUserMessage(message);
     input.value = "";
