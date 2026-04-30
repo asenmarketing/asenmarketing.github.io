@@ -305,6 +305,24 @@ window.AsenChatConfig = {
       animation: asenChatPulse 1.2s infinite ease-in-out;
     }
 
+    .asen-chat-quick-replies {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .asen-chat-quick-reply {
+      border: 1px solid var(--asen-chat-border);
+      background: #fff;
+      color: var(--asen-chat-primary);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
     .asen-chat-typing-dot:nth-child(2) { animation-delay: .15s; }
     .asen-chat-typing-dot:nth-child(3) { animation-delay: .3s; }
 
@@ -427,7 +445,7 @@ window.AsenChatConfig = {
     return digits.length >= 10 && digits.length <= 15;
   }
 
-  function addMessage(role, html, links) {
+  function addMessage(role, html, links, quickReplies) {
     var row = document.createElement("div");
     row.className = "asen-chat-message-row is-" + role;
 
@@ -451,6 +469,24 @@ window.AsenChatConfig = {
       });
 
       bubble.appendChild(linksWrap);
+    }
+
+    if (Array.isArray(quickReplies) && quickReplies.length) {
+      var quickWrap = document.createElement("div");
+      quickWrap.className = "asen-chat-quick-replies";
+
+      quickReplies.forEach(function (reply) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "asen-chat-quick-reply";
+        btn.textContent = reply.label;
+        btn.addEventListener("click", function () {
+          sendMessage(reply.value || reply.label);
+        });
+        quickWrap.appendChild(btn);
+      });
+
+      bubble.appendChild(quickWrap);
     }
 
     row.appendChild(bubble);
@@ -479,9 +515,9 @@ window.AsenChatConfig = {
     return addMessage("user", linkify(text));
   }
 
-  function addBotMessage(text, links) {
+  function addBotMessage(text, links, quickReplies) {
     chatMessages.push({ role: "assistant", content: text });
-    return addMessage("bot", linkify(text), links);
+    return addMessage("bot", linkify(text), links, quickReplies);
   }
 
   function addTyping() {
@@ -563,6 +599,7 @@ window.AsenChatConfig = {
       addBotMessage(
         data.answer || "Sorry — I wasn’t able to generate a response.",
         Array.isArray(data.links) && config.useLinks ? data.links : [],
+        Array.isArray(data.quickReplies) ? data.quickReplies : [],
       );
     } catch (err) {
       if (typingEl && typingEl.parentNode)
