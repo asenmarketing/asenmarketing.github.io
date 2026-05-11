@@ -616,6 +616,12 @@ window.AsenChatConfig = {
         Array.isArray(data.links) && config.useLinks ? data.links : [],
         Array.isArray(data.quickReplies) ? data.quickReplies : [],
       );
+
+      if (data.closeChat) {
+        setTimeout(function () {
+          closeChat();
+        }, 2500);
+      }
     } catch (err) {
       if (typingEl && typingEl.parentNode)
         typingEl.parentNode.removeChild(typingEl);
