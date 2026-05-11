@@ -618,6 +618,7 @@ window.AsenChatConfig = {
       );
 
       if (data.closeChat) {
+        console.log("Nonsensical response received, closing chat:", data);
         setTimeout(function () {
           closeChat();
         }, 2500);
