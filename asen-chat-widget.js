@@ -105,7 +105,7 @@ window.AsenChatConfig = {
 
     .asen-chat-panel {
       width: min(calc(100vw - 32px), ${config.maxWidth});
-      height: min(620px, calc(100vh - 100px));
+      height: min(90vh, calc(100vh - 100px));
       background: var(--asen-chat-bg);
       border: 1px solid var(--asen-chat-border);
       border-radius: var(--asen-chat-radius);
@@ -246,17 +246,22 @@ window.AsenChatConfig = {
       gap: 8px;
     }
 
-    .asen-chat-input {
-      width: 100%;
-      min-width: 0;
-      border: 1px solid var(--asen-chat-border);
-      border-radius: 12px;
-      padding: 0.5rem;
-      font: inherit;
-      font-size: 16px;
-      color: var(--asen-chat-text);
-      background: #fff;
-    }
+.asen-chat-input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--asen-chat-border);
+  border-radius: 12px;
+  padding: 0.5rem;
+  font: inherit;
+  font-size: 16px;
+  color: var(--asen-chat-text);
+  background: #fff;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.5;
+  max-height: 120px;
+  display: block;
+}
 
     .asen-chat-input:focus {
       outline: none;
@@ -372,7 +377,8 @@ window.AsenChatConfig = {
 
       <form class="asen-chat-form">
         <div class="asen-chat-input-wrap">
-          <input class="asen-chat-input" type="text" placeholder="${escapeHtml(config.placeholder)}" />
+
+          <textarea class="asen-chat-input" rows="1" placeholder="${escapeHtml(config.placeholder)}"></textarea>
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
         <div class="asen-chat-footer">Answers are AI-assisted and based on available site information.</div>
@@ -390,6 +396,12 @@ window.AsenChatConfig = {
   var form = root.querySelector(".asen-chat-form");
   var input = root.querySelector(".asen-chat-input");
   var sendBtn = root.querySelector(".asen-chat-send");
+
+  function autoResizeInput() {
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight, 120) + "px";
+  }
+  input.addEventListener("input", autoResizeInput);
 
   function escapeHtml(str) {
     return String(str)
@@ -557,6 +569,7 @@ window.AsenChatConfig = {
 
     addUserMessage(message);
     input.value = "";
+    input.style.height = "auto";
     setSending(true);
 
     var typingEl = addTyping();
