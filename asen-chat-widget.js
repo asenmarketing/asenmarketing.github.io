@@ -91,7 +91,7 @@ window.AsenChatConfig = {
       border-radius: 30px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
-      padding: 2rem;
+      padding: 1rem 2rem;
       font: inherit;
       font-weight: 600;
       cursor: pointer;
