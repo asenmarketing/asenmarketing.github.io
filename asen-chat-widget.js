@@ -88,7 +88,7 @@ window.AsenChatConfig = {
     .asen-chat-launcher {
       appearance: none;
       border: 0;
-      border-radius: 30px;
+      border-radius: 8px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
       padding: 1rem;
