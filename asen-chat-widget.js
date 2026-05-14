@@ -533,6 +533,7 @@ window.AsenChatConfig = {
     goals: null,
     budget: null,
     timeline: null,
+    additionalInfo: [],
   };
 
   function addUserMessage(text) {
