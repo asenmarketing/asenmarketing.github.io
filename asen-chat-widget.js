@@ -137,8 +137,6 @@ window.AsenChatConfig = {
       padding: 14px 16px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
       gap: 12px;
       position: relative;
       border-bottom: 2px solid var(--asen-chat-accent);
@@ -154,13 +152,13 @@ window.AsenChatConfig = {
 
     .asen-chat-header-subtitle {
       margin: 1rem 0 0;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
     }
 
     .asen-chat-header-welcome {
       margin: 0.5rem 0;
-      font-size: 15px;
+      font-size: 14px;
       text-wrap: balance;
       opacity: 0.7;
     }
