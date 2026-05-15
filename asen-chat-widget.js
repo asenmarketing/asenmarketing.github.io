@@ -88,12 +88,12 @@ window.AsenChatConfig = {
     .asen-chat-launcher {
       appearance: none;
       border: 0;
-      border-radius: 8px;
+      border-radius: 15px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
-      padding: 0.7rem 1rem;
+      padding: 0.8rem 1rem;
       font: inherit;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       cursor: pointer;
       box-shadow: var(--asen-chat-shadow);
@@ -392,7 +392,7 @@ window.AsenChatConfig = {
       </form>
     </div>
 
-    <button class="asen-chat-launcher" type="button"><i class="fa-solid fa-message-dots"></i> ${escapeHtml(config.launcherLabel)}</button>
+    <button class="asen-chat-launcher" type="button"><i class="fa-regular fa-message-dots"></i> ${escapeHtml(config.launcherLabel)}</button>
   `;
   document.body.appendChild(root);
 
