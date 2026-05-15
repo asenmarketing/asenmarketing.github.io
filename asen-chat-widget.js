@@ -382,7 +382,7 @@ window.AsenChatConfig = {
     <div class="asen-chat-panel" aria-label="Chat window">
       <div class="asen-chat-header">
         <div>
-          <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
+          <div class="asen-chat-header-title">${config.title}</div>
           <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}</div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
