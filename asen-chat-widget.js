@@ -151,7 +151,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-header-subtitle {
-      margin: 1rem 0 0;
+      margin: 0.75rem 0 0;
       font-size: 16px;
       font-weight: 700;
     }
