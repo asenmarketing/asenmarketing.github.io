@@ -162,6 +162,7 @@ window.AsenChatConfig = {
       margin: 0.5rem 0;
       font-size: 15px;
       text-wrap: balance
+      opacity: 0.7
     }
 
     .asen-chat-close {
