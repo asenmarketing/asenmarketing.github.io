@@ -2,10 +2,10 @@
   /* <script>
 window.AsenChatConfig = {
   apiUrl: "LAMBDA_URL", // Replace with your API endpoint
-  siteName: "Asen Marketing",
   title: "Chat with SITE_NAME",
-  launcherLabel: "Chat",
+  subtitle: "Asen Marketing",
   welcomeMessage: "Hi! Ask us about our services, websites, SEO, or how to get started.",
+  launcherLabel: "Chat",
   placeholder: "Type your question...",
   servicesUrl: "https://asenmarketing.com/services",
   contactUrl: "https://asenmarketing.com/contact",
@@ -27,10 +27,10 @@ window.AsenChatConfig = {
   var config = Object.assign(
     {
       apiUrl: "",
-      siteName: "Website Assistant",
       title: "Chat",
-      launcherLabel: "Chat",
+      subtitle: "Website Assistant",
       welcomeMessage: "Hi! How can I help?",
+      launcherLabel: "Chat",
       placeholder: "Ask a question...",
       servicesUrl: "",
       contactUrl: "",
@@ -381,7 +381,7 @@ window.AsenChatConfig = {
       <div class="asen-chat-header">
         <div>
           <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
-          <div class="asen-chat-header-subtitle">${escapeHtml(config.siteName)}</div>
+          <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}</div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
         <button class="asen-chat-close" type="button" aria-label="Close chat">&times;</button>
