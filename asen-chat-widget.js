@@ -141,24 +141,26 @@ window.AsenChatConfig = {
       text-align: center;
       gap: 12px;
       position: relative;
+      border-bottom: 2px solid var(--asen-chat-accent);
     }
 
     .asen-chat-header-title {
       margin: 0;
-      font-size: 20px;
+      font-size: 13px;
       font-weight: 700;
       line-height: 1.2;
+      text-transform: uppercase;
     }
 
     .asen-chat-header-subtitle {
-      margin: 4px 0 0;
-      font-size: 16px;
-      font-weight: 500;
+      margin: 1.5rem 0 0;
+      font-size: 18px;
+      font-weight: 700;
     }
 
     .asen-chat-header-welcome {
-      margin: 8px 0 0;
-      font-size: 14px;
+      margin: 1rem 0;
+      font-size: 15px;
     }
 
     .asen-chat-close {
