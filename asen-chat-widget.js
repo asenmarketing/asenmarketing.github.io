@@ -159,7 +159,6 @@ window.AsenChatConfig = {
     .asen-chat-header-welcome {
       margin: 0.5rem 0;
       font-size: 14px;
-      text-wrap: balance;
       opacity: 0.7;
     }
 
@@ -382,7 +381,7 @@ window.AsenChatConfig = {
     <div class="asen-chat-panel" aria-label="Chat window">
       <div class="asen-chat-header">
         <div>
-          <div class="asen-chat-header-title">${config.title}</div>
+          <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
           <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}</div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
