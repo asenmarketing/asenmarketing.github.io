@@ -137,7 +137,8 @@ window.AsenChatConfig = {
       padding: 14px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      text-align: center;
       gap: 12px;
       position: relative;
     }
@@ -152,7 +153,12 @@ window.AsenChatConfig = {
     .asen-chat-header-subtitle {
       margin: 4px 0 0;
       font-size: 16px;
-      opacity: .9;
+      font-weight: 500;
+    }
+
+    .asen-chat-header-welcome {
+      margin: 8px 0 0;
+      font-size: 14px;
     }
 
     .asen-chat-close {
@@ -376,6 +382,7 @@ window.AsenChatConfig = {
         <div>
           <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
           <div class="asen-chat-header-subtitle">${escapeHtml(config.siteName)}</div>
+          <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
         <button class="asen-chat-close" type="button" aria-label="Close chat">&times;</button>
       </div>
@@ -430,7 +437,6 @@ window.AsenChatConfig = {
     state.isOpen = true;
     root.classList.add("is-open");
     if (!messagesEl.dataset.initialized) {
-      addMessage("bot", linkify(config.welcomeMessage), buildWelcomeLinks());
       messagesEl.dataset.initialized = "true";
     }
     setTimeout(function () {
