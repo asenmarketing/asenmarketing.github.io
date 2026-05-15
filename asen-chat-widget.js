@@ -392,7 +392,7 @@ window.AsenChatConfig = {
       </form>
     </div>
 
-    <button class="asen-chat-launcher" type="button"><i class="fa-regular fa-message-dots"></i> ${escapeHtml(config.launcherLabel)}</button>
+    <button class="asen-chat-launcher" type="button"><i class="fa-regular fa-sparkles"></i> ${escapeHtml(config.launcherLabel)}</button>
   `;
   document.body.appendChild(root);
 
