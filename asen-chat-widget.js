@@ -157,7 +157,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-header-welcome {
-      margin: 0.5rem 0;
+      margin: 0.5rem 0 0;
       font-size: 14px;
       opacity: 0.7;
     }
