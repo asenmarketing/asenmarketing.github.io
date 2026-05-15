@@ -91,16 +91,23 @@ window.AsenChatConfig = {
       border-radius: 8px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
-      padding: 1rem;
+      padding: 0.7rem 1rem;
       font: inherit;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 500;
       cursor: pointer;
       box-shadow: var(--asen-chat-shadow);
-      transition: transform .15s ease, opacity .15s ease;
+      transition: transform .15s ease, opacity .15s ease, background .15s ease, color .15s ease;
+    }
+
+    .asen-chat-launcher i {
+      font-size: 20px;
+      margin-right: 6px;
     }
 
     .asen-chat-launcher:hover {
-      transform: translateY(-1px);
+      background: var(--asen-chat-accent);
+      color: var(--asen-chat-primary);
     }
 
     .asen-chat-panel {
@@ -385,7 +392,7 @@ window.AsenChatConfig = {
       </form>
     </div>
 
-    <button class="asen-chat-launcher" type="button">${escapeHtml(config.launcherLabel)}</button>
+    <button class="asen-chat-launcher" type="button"><i class="fa-solid fa-message-dots"></i> ${escapeHtml(config.launcherLabel)}</button>
   `;
   document.body.appendChild(root);
 
