@@ -132,14 +132,15 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-header {
-      background: var(--asen-chat-primary);
-      color: var(--asen-chat-accent);
+      background: var(--asen-chat-accent);
+      color: #fff;
       padding: 14px 16px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
       gap: 12px;
       position: relative;
-      border-bottom: 2px solid var(--asen-chat-accent);
     }
 
     .asen-chat-header-title {
@@ -156,10 +157,17 @@ window.AsenChatConfig = {
       font-weight: 700;
     }
 
-    .asen-chat-header-welcome {
-      margin: 0.5rem 0 0;
-      font-size: 14px;
-      opacity: 0.7;
+        .asen-chat-header-subtitle i {
+      font-size: 20px;
+      margin-right: 6px;
+      }
+      
+      .asen-chat-header-welcome {
+        margin: 0.5rem 0 0;
+        font-size: 15px;
+        opacity: 0.7;
+        font-weight: 600;
+        max-width: 380px;
     }
 
     .asen-chat-close {
@@ -382,7 +390,7 @@ window.AsenChatConfig = {
       <div class="asen-chat-header">
         <div>
           <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
-          <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}</div>
+          <div class="asen-chat-header-subtitle"><i class="fa-regular fa-sparkles"></i> ${escapeHtml(config.subtitle)}</div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
         <button class="asen-chat-close" type="button" aria-label="Close chat">&times;</button>
