@@ -166,7 +166,7 @@ window.AsenChatConfig = {
     }
     
     .asen-chat-header-welcome {
-      margin: 0.5rem 0 0;
+      margin: 0.5rem 0 0.5rem;
       font-size: 15px;
       font-weight: 600;
       max-width: 380px;
