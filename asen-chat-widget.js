@@ -149,6 +149,7 @@ window.AsenChatConfig = {
       font-weight: 500;
       line-height: 1.2;
       text-transform: uppercase;
+      opacity: 0.7;
     }
 
     .asen-chat-header-subtitle {
