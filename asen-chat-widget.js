@@ -157,17 +157,17 @@ window.AsenChatConfig = {
       font-weight: 700;
     }
 
-        .asen-chat-header-subtitle i {
+    .asen-chat-header-subtitle i {
       font-size: 20px;
       margin-right: 6px;
-      }
-      
-      .asen-chat-header-welcome {
-        margin: 0.5rem 0 0;
-        font-size: 15px;
-        opacity: 0.7;
-        font-weight: 600;
-        max-width: 380px;
+      opacity: 0.7;
+    }
+    
+    .asen-chat-header-welcome {
+      margin: 0.5rem 0 0;
+      font-size: 15px;
+      font-weight: 600;
+      max-width: 380px;
     }
 
     .asen-chat-close {
