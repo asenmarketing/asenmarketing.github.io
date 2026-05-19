@@ -197,6 +197,7 @@ window.AsenChatConfig = {
     .asen-chat-message-row {
       display: flex;
       margin-bottom: 14px;
+      height: fit-content;
     }
 
     .asen-chat-message-row.is-user {
