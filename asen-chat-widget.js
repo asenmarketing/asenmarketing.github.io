@@ -358,6 +358,10 @@ window.AsenChatConfig = {
       background: var(--asen-chat-accent);
     }
 
+    .asen-chat-typing-row .asen-chat-message {
+      line-height: 0;
+    }
+
     .asen-chat-typing-dot:nth-child(2) { animation-delay: .15s; }
     .asen-chat-typing-dot:nth-child(3) { animation-delay: .3s; }
 
