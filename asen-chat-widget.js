@@ -14,7 +14,29 @@ window.AsenChatConfig = {
   position: "right",
   zIndex: 999999,
   maxWidth: "380px",
-  useLinks: true
+  useLinks: true,
+  starterTopics: [
+  {
+    label: "Services",
+    value: "Can you tell me about Asen's services?"
+  },
+  {
+    label: "Websites",
+    value: "I’m interested in a new website."
+  },
+  {
+    label: "Marketing Questions",
+    value: "I have a marketing question."
+  },
+  {
+    label: "Asen Marketing",
+    value: "Can you tell me more about Asen Marketing?"
+  },
+  {
+    label: "Other",
+    value: "I need help with something else."
+  }
+],
 };
 </script>
 <script src="https://asenmarketing.github.io/asen-chat-widget.js" defer></script> */
@@ -40,6 +62,7 @@ window.AsenChatConfig = {
       zIndex: 999999,
       maxWidth: "380px",
       useLinks: false,
+      starterTopics: [],
     },
     window.AsenChatConfig || {},
   );
@@ -411,7 +434,7 @@ window.AsenChatConfig = {
           <textarea class="asen-chat-input" rows="1" placeholder="${escapeHtml(config.placeholder)}"></textarea>
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
-        <div class="asen-chat-footer">Answers are AI-assisted and based on available site information.</div>
+        <div class="asen-chat-footer">This chat is AI-assisted and based on available site information. Answers are not guaranteed to be accurate or complete.</div>
       </form>
     </div>
 
@@ -452,9 +475,15 @@ window.AsenChatConfig = {
   function openChat() {
     state.isOpen = true;
     root.classList.add("is-open");
+
     if (!messagesEl.dataset.initialized) {
       messagesEl.dataset.initialized = "true";
+
+      if (!chatMessages.length) {
+        showStarterTopics();
+      }
     }
+
     setTimeout(function () {
       input.focus();
       messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -477,6 +506,33 @@ window.AsenChatConfig = {
     quickReplyGroups.forEach(function (group) {
       group.remove();
     });
+  }
+
+  function getStarterTopics() {
+    if (!Array.isArray(config.starterTopics)) return [];
+
+    return config.starterTopics
+      .filter(function (topic) {
+        return topic && topic.label;
+      })
+      .map(function (topic) {
+        return {
+          label: topic.label,
+          value: topic.value || topic.label,
+        };
+      });
+  }
+
+  function showStarterTopics() {
+    var starterTopics = getStarterTopics();
+    if (!starterTopics.length) return;
+
+    addMessage(
+      "bot",
+      escapeHtml("What would you like help with?"),
+      [],
+      starterTopics,
+    );
   }
 
   function buildWelcomeLinks() {
