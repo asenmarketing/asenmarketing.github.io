@@ -15,6 +15,7 @@ window.AsenChatConfig = {
   zIndex: 999999,
   maxWidth: "380px",
   useLinks: true,
+  footerLink: "https://asenmarketing.com/ai-chat-disclaimer.pdf",
   starterTopics: [
   {
     label: "Services",
@@ -64,6 +65,7 @@ window.AsenChatConfig = {
       useLinks: false,
       starterTopics: [],
       persistSession: true,
+      footerLink: "",
       storageKey: "asenChatSession",
     },
     window.AsenChatConfig || {},
@@ -345,6 +347,11 @@ window.AsenChatConfig = {
       text-align: center;
     }
 
+    .asen-chat-footer a {
+      color: var(--asen-chat-accent);
+      text-decoration: underline;
+    }
+
     .asen-chat-typing {
       display: flex;
       align-items: center;
@@ -439,7 +446,7 @@ window.AsenChatConfig = {
           <textarea class="asen-chat-input" rows="1" placeholder="${escapeHtml(config.placeholder)}"></textarea>
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
-        <div class="asen-chat-footer">This chat is AI-assisted and based on available site information.<br> Answers are not guaranteed to be accurate or complete.</div>
+        <div class="asen-chat-footer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
       </form>
     </div>
 
