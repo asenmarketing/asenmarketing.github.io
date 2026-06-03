@@ -63,6 +63,8 @@ window.AsenChatConfig = {
       maxWidth: "380px",
       useLinks: false,
       starterTopics: [],
+      persistSession: true,
+      storageKey: "asenChatSession",
     },
     window.AsenChatConfig || {},
   );
@@ -487,6 +489,8 @@ window.AsenChatConfig = {
       }
     }
 
+    saveChatSession();
+
     setTimeout(function () {
       input.focus();
       messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -496,6 +500,7 @@ window.AsenChatConfig = {
   function closeChat() {
     state.isOpen = false;
     root.classList.remove("is-open");
+    saveChatSession();
   }
 
   function setSending(isSending) {
@@ -509,6 +514,14 @@ window.AsenChatConfig = {
     quickReplyGroups.forEach(function (group) {
       group.remove();
     });
+
+    chatMessages.forEach(function (msg) {
+      if (msg && msg.quickReplies) {
+        msg.quickReplies = [];
+      }
+    });
+
+    saveChatSession();
   }
 
   function getStarterTopics() {
@@ -624,14 +637,90 @@ window.AsenChatConfig = {
     additionalInfo: [],
   };
 
+  function getStorageKey() {
+    return config.storageKey || "asenChatSession";
+  }
+
+  function saveChatSession() {
+    if (!config.persistSession) return;
+
+    try {
+      var payload = {
+        isOpen: state.isOpen,
+        sessionId: state.sessionId,
+        chatMessages: chatMessages,
+        leadContext: leadContext,
+        initialized: messagesEl.dataset.initialized === "true",
+        savedAt: Date.now(),
+      };
+
+      sessionStorage.setItem(getStorageKey(), JSON.stringify(payload));
+    } catch (err) {
+      console.warn("Asen Chat Widget: could not save session", err);
+    }
+  }
+
+  function restoreChatSession() {
+    if (!config.persistSession) return;
+
+    try {
+      var raw = sessionStorage.getItem(getStorageKey());
+      if (!raw) return;
+
+      var payload = JSON.parse(raw);
+
+      if (!payload || !Array.isArray(payload.chatMessages)) return;
+
+      state.sessionId = payload.sessionId || null;
+      leadContext = Object.assign({}, leadContext, payload.leadContext || {});
+      chatMessages = payload.chatMessages || [];
+
+      messagesEl.innerHTML = "";
+
+      chatMessages.forEach(function (msg) {
+        if (!msg || !msg.role || !msg.content) return;
+
+        addMessage(
+          msg.role === "user" ? "user" : "bot",
+          linkify(msg.content),
+          msg.links || [],
+          msg.quickReplies || [],
+        );
+      });
+
+      if (payload.initialized && chatMessages.length) {
+        messagesEl.dataset.initialized = "true";
+      } else {
+        delete messagesEl.dataset.initialized;
+      }
+
+      if (payload.isOpen) {
+        state.isOpen = true;
+        root.classList.add("is-open");
+      }
+    } catch (err) {
+      console.warn("Asen Chat Widget: could not restore session", err);
+    }
+  }
+
   function addUserMessage(text) {
     chatMessages.push({ role: "user", content: text });
-    return addMessage("user", linkify(text));
+    var row = addMessage("user", linkify(text));
+    saveChatSession();
+    return row;
   }
 
   function addBotMessage(text, links, quickReplies) {
-    chatMessages.push({ role: "assistant", content: text });
-    return addMessage("bot", linkify(text), links, quickReplies);
+    chatMessages.push({
+      role: "assistant",
+      content: text,
+      links: Array.isArray(links) ? links : [],
+      quickReplies: Array.isArray(quickReplies) ? quickReplies : [],
+    });
+
+    var row = addMessage("bot", linkify(text), links, quickReplies);
+    saveChatSession();
+    return row;
   }
 
   function addTyping() {
@@ -694,6 +783,8 @@ window.AsenChatConfig = {
       if (data.leadContext) {
         leadContext = Object.assign({}, leadContext, data.leadContext);
 
+        saveChatSession();
+
         if (leadContext.email && !isValidEmail(leadContext.email)) {
           addMessage(
             "bot",
@@ -712,6 +803,8 @@ window.AsenChatConfig = {
       }
 
       state.sessionId = data.sessionId || state.sessionId;
+
+      saveChatSession();
 
       addBotMessage(
         data.answer || "Sorry — I wasn’t able to generate a response.",
@@ -741,6 +834,8 @@ window.AsenChatConfig = {
       input.focus();
     }
   }
+
+  restoreChatSession();
 
   launcher.addEventListener("click", openChat);
   closeBtn.addEventListener("click", closeChat);
