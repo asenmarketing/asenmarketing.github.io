@@ -532,7 +532,7 @@ window.AsenChatConfig = {
 
     addMessage(
       "bot",
-      escapeHtml("What would you like help with?"),
+      escapeHtml("Would you like to know more about..."),
       [],
       starterTopics,
     );
