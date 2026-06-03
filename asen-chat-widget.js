@@ -369,11 +369,13 @@ window.AsenChatConfig = {
       border: 1px solid var(--asen-chat-border);
       background: #fff;
       color: var(--asen-chat-accent);
-      border-radius: 999px;
+      border-radius: 8px;
       padding: 8px 10px;
       font: inherit;
-      font-size: 14px;
+      font-size: 18px;
       cursor: pointer;
+      width: 100%;
+      font-weight: 500;
     }
     
     .asen-chat-quick-reply:hover {
