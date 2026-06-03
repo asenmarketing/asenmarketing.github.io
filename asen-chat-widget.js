@@ -340,6 +340,7 @@ window.AsenChatConfig = {
       margin-top: 8px;
       font-size: 11px;
       color: var(--asen-chat-muted);
+      text-align: center;
     }
 
     .asen-chat-typing {
@@ -436,7 +437,7 @@ window.AsenChatConfig = {
           <textarea class="asen-chat-input" rows="1" placeholder="${escapeHtml(config.placeholder)}"></textarea>
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
-        <div class="asen-chat-footer">This chat is AI-assisted and based on available site information. Answers are not guaranteed to be accurate or complete.</div>
+        <div class="asen-chat-footer">This chat is AI-assisted and based on available site information.<br> Answers are not guaranteed to be accurate or complete.</div>
       </form>
     </div>
 
