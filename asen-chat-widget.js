@@ -386,6 +386,7 @@ window.AsenChatConfig = {
       cursor: pointer;
       width: 100%;
       font-weight: 500;
+      text-wrap: balance;
     }
     
     .asen-chat-quick-reply:hover {
