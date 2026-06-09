@@ -555,12 +555,7 @@ window.AsenChatConfig = {
     var starterTopics = getStarterTopics();
     if (!starterTopics.length) return;
 
-    addMessage(
-      "bot",
-      escapeHtml("What can I help you with today?"),
-      [],
-      starterTopics,
-    );
+    addBotMessage("What can I help you with today?", [], starterTopics);
   }
 
   function buildWelcomeLinks() {
