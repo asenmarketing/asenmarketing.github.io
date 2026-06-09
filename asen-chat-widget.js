@@ -382,7 +382,7 @@ window.AsenChatConfig = {
       border-radius: 8px;
       padding: 8px 10px;
       font: inherit;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       width: 100%;
       font-weight: 500;
@@ -415,12 +415,16 @@ window.AsenChatConfig = {
 
       .asen-chat-panel {
         width: 100%;
-        height: min(72vh, 620px);
       }
 
       .asen-chat-launcher {
         width: 100%;
         justify-content: center;
+      }
+
+      .asen-chat-quick-reply {
+      font-size: 14px;
+        padding: 6px 8px;
       }
     }
   `;
