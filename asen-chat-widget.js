@@ -426,6 +426,10 @@ window.AsenChatConfig = {
       font-size: 14px;
         padding: 6px 8px;
       }
+
+      .asen-chat-message {
+      font-size: 16px;
+      }
     }
   `;
   document.head.appendChild(style);
