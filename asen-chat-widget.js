@@ -788,6 +788,15 @@ window.AsenChatConfig = {
           response: data,
         });
 
+        if (res.status === 429 && data.answer) {
+          addBotMessage(
+            data.answer,
+            Array.isArray(data.links) && config.useLinks ? data.links : [],
+            [],
+          );
+          return;
+        }
+
         throw new Error(data.error || "Something went wrong.");
       }
 
