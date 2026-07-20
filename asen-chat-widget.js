@@ -385,6 +385,7 @@ window.AsenChatConfig = {
       white-space: nowrap;
       flex-shrink: 0;
       transition: opacity .15s ease;
+      height: 100%;
     }
 
     body button[type="submit"].asen-chat-send:hover {
