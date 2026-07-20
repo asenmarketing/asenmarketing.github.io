@@ -342,9 +342,7 @@ window.AsenChatConfig = {
       border: 1px solid var(--asen-chat-border);
       border-radius: 16px;
       background: #fff;
-      padding: 16px 10px 16px 10px;
-      max-height: 84px;
-      height: 100%;
+      padding: 10px 10px 10px 10px;
     }
 
     .asen-chat-input-wrap:focus-within {
@@ -364,6 +362,7 @@ window.AsenChatConfig = {
   resize: none;
   overflow-y: auto;
   line-height: 1.5;
+  min-height: 84px;
   max-height: 120px;
   display: block;
 }
@@ -861,7 +860,7 @@ window.AsenChatConfig = {
 
     addUserMessage(message);
     input.value = "";
-    input.style.height = "auto";
+    autoResizeInput();
     setSending(true);
 
     var typingEl = addTyping();
