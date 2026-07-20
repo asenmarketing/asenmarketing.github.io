@@ -56,6 +56,7 @@ window.AsenChatConfig = {
       launcherLabel: "Chat",
       launcherIcon: "https://asenmarketing.github.io/ask-asen.webp",
       launcherExpandDelay: 3000,
+      footerLogo: "https://asenmarketing.github.io/compass-logo.svg",
       placeholder: "Ask a question...",
       servicesUrl: "",
       contactUrl: "",
@@ -420,6 +421,13 @@ window.AsenChatConfig = {
       margin-right: 4px;
     }
 
+    .asen-chat-compass-logo {
+      height: 15px;
+      width: auto;
+      vertical-align: -3px;
+      display: inline-block;
+    }
+
     .asen-chat-disclaimer {
       font-size: 11px;
       color: var(--asen-chat-muted);
@@ -540,7 +548,11 @@ window.AsenChatConfig = {
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
         <div class="asen-chat-footer">
-          <div class="asen-chat-powered">Powered by <span class="asen-chat-compass"><i class="fa-solid fa-sparkles"></i>Compass</span> from Asen</div>
+          <div class="asen-chat-powered">Powered by ${
+            config.footerLogo
+              ? `<img class="asen-chat-compass-logo" src="${escapeHtml(config.footerLogo)}" alt="Compass" />`
+              : `<span class="asen-chat-compass"><i class="fa-solid fa-sparkles"></i>Compass</span>`
+          } from Asen</div>
           <div class="asen-chat-disclaimer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
         </div>
       </form>
