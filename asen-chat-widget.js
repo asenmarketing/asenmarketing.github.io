@@ -54,6 +54,8 @@ window.AsenChatConfig = {
       subtitle: "Website Assistant",
       welcomeMessage: "Hi! How can I help?",
       launcherLabel: "Chat",
+      launcherIcon: "https://asenmarketing.github.io/ask-asen.webp",
+      launcherExpandDelay: 3000,
       placeholder: "Ask a question...",
       servicesUrl: "",
       contactUrl: "",
@@ -117,21 +119,55 @@ window.AsenChatConfig = {
     .asen-chat-launcher {
       appearance: none;
       border: 0;
-      border-radius: 15px;
+      border-radius: 16px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
-      padding: 0.8rem 1rem;
+      padding: 0;
       font: inherit;
       font-size: 14px;
       font-weight: 500;
       cursor: pointer;
       box-shadow: var(--asen-chat-shadow);
-      transition: transform .15s ease, opacity .15s ease, background .15s ease, color .15s ease;
+      display: inline-flex;
+      align-items: center;
+      overflow: hidden;
+      margin-left: auto;
+      transition: background .15s ease, color .15s ease;
     }
 
-    .asen-chat-launcher i {
-      font-size: 20px;
-      margin-right: 6px;
+    .asen-chat-launcher-icon {
+      flex: 0 0 auto;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .asen-chat-launcher-icon img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .asen-chat-launcher-icon i {
+      font-size: 22px;
+    }
+
+    .asen-chat-launcher-label {
+      max-width: 0;
+      opacity: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      padding-left: 0;
+      transition: max-width .45s ease, opacity .35s ease, padding-left .45s ease;
+    }
+
+    .asen-chat-launcher.is-expanded .asen-chat-launcher-label {
+      max-width: 220px;
+      opacity: 1;
+      padding-left: 18px;
     }
 
     .asen-chat-launcher:hover {
@@ -461,6 +497,12 @@ window.AsenChatConfig = {
         justify-content: center;
       }
 
+      .asen-chat-launcher-label {
+        max-width: 220px;
+        opacity: 1;
+        padding-left: 12px;
+      }
+
       .asen-chat-quick-reply {
       font-size: 14px;
         padding: 6px 8px;
@@ -501,11 +543,27 @@ window.AsenChatConfig = {
       </form>
     </div>
 
-    <button class="asen-chat-launcher" type="button"><i class="fa-regular fa-sparkles"></i> ${escapeHtml(config.launcherLabel)}</button>
+    <button class="asen-chat-launcher" type="button">
+      <span class="asen-chat-launcher-label">${escapeHtml(config.launcherLabel)}</span>
+      <span class="asen-chat-launcher-icon">${
+        config.launcherIcon
+          ? `<img src="${escapeHtml(config.launcherIcon)}" alt="" aria-hidden="true" />`
+          : '<i class="fa-regular fa-sparkles"></i>'
+      }</span>
+    </button>
   `;
   document.body.appendChild(root);
 
   var launcher = root.querySelector(".asen-chat-launcher");
+
+  if (config.launcherLabel) {
+    var expandDelay = Number(config.launcherExpandDelay);
+    if (!isFinite(expandDelay) || expandDelay < 0) expandDelay = 3000;
+    setTimeout(function () {
+      launcher.classList.add("is-expanded");
+    }, expandDelay);
+  }
+
   var panel = root.querySelector(".asen-chat-panel");
   var closeBtn = root.querySelector(".asen-chat-close");
   var messagesEl = root.querySelector(".asen-chat-messages");
