@@ -137,22 +137,23 @@ window.AsenChatConfig = {
 
     .asen-chat-launcher-icon {
       flex: 0 0 auto;
-      width: 56px;
-      height: 56px;
+      width: 100px;
+      height: 100px;
+      padding: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .asen-chat-launcher-icon img {
-      width: 32px;
-      height: 32px;
+      width: 100%;
+      height: 100%;
       display: block;
       object-fit: contain;
     }
 
     .asen-chat-launcher-icon i {
-      font-size: 22px;
+      font-size: 40px;
     }
 
     .asen-chat-launcher-label {
@@ -160,14 +161,14 @@ window.AsenChatConfig = {
       opacity: 0;
       white-space: nowrap;
       overflow: hidden;
-      padding-left: 0;
-      transition: max-width .45s ease, opacity .35s ease, padding-left .45s ease;
+      padding-right: 0;
+      transition: max-width .45s ease, opacity .35s ease, padding-right .45s ease;
     }
 
     .asen-chat-launcher.is-expanded .asen-chat-launcher-label {
       max-width: 220px;
       opacity: 1;
-      padding-left: 18px;
+      padding-right: 20px;
     }
 
     .asen-chat-launcher:hover {
@@ -500,7 +501,7 @@ window.AsenChatConfig = {
       .asen-chat-launcher-label {
         max-width: 220px;
         opacity: 1;
-        padding-left: 12px;
+        padding-right: 12px;
       }
 
       .asen-chat-quick-reply {
@@ -544,12 +545,12 @@ window.AsenChatConfig = {
     </div>
 
     <button class="asen-chat-launcher" type="button">
-      <span class="asen-chat-launcher-label">${escapeHtml(config.launcherLabel)}</span>
       <span class="asen-chat-launcher-icon">${
         config.launcherIcon
           ? `<img src="${escapeHtml(config.launcherIcon)}" alt="" aria-hidden="true" />`
           : '<i class="fa-regular fa-sparkles"></i>'
       }</span>
+      <span class="asen-chat-launcher-label">${escapeHtml(config.launcherLabel)}</span>
     </button>
   `;
   document.body.appendChild(root);
