@@ -369,6 +369,7 @@ window.AsenChatConfig = {
   min-height: 59px;
   max-height: 59px;
   display: block;
+  padding-left: 8px;
 }
 
     .asen-chat-input:focus {
