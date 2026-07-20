@@ -342,7 +342,7 @@ window.AsenChatConfig = {
       border: 1px solid var(--asen-chat-border);
       border-radius: 16px;
       background: #fff;
-      padding: 20px 10px 10px 20px;
+      padding: 16px 10px 16px 10px;
       max-height: 84px;
       height: 100%;
     }
@@ -460,10 +460,10 @@ window.AsenChatConfig = {
       border-radius: 8px;
       padding: 10px 12px;
       font: inherit;
-      font-size: 16px;
+      font-size: 11px;
       cursor: pointer;
       width: 100%;
-      font-weight: 500;
+      font-weight: 400;
       text-align: left;
     }
     
