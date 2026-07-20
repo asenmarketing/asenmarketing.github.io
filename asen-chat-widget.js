@@ -342,8 +342,9 @@ window.AsenChatConfig = {
       border: 1px solid var(--asen-chat-border);
       border-radius: 16px;
       background: #fff;
-      padding: 10px 10px 10px 16px;
-      min-height: 64px;
+      padding: 20px 10px 10px 20px;
+      max-height: 84px;
+      height: 100%;
     }
 
     .asen-chat-input-wrap:focus-within {
@@ -356,9 +357,8 @@ window.AsenChatConfig = {
   min-width: 0;
   border: 0;
   border-radius: 0;
-  padding: 6px 0;
   font: inherit;
-  font-size: 16px;
+  font-size: 11px;
   color: var(--asen-chat-text);
   background: transparent;
   resize: none;
@@ -375,13 +375,13 @@ window.AsenChatConfig = {
     body button[type="submit"].asen-chat-send {
       appearance: none;
       border: 0;
-      border-radius: 999px;
+      border-radius: 14px;
       background: var(--asen-chat-accent);
       color: #fff;
       padding: 0.5rem 1.4rem;
       font: inherit;
       font-weight: 600;
-      font-size: 16px !important;
+      font-size: 11px !important;
       cursor: pointer;
       white-space: nowrap;
       flex-shrink: 0;
