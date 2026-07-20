@@ -365,8 +365,8 @@ window.AsenChatConfig = {
   resize: none;
   overflow-y: auto;
   line-height: 1.5;
-  min-height: 84px;
-  max-height: 120px;
+  min-height: 59px;
+  max-height: 59px;
   display: block;
 }
 
