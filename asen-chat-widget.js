@@ -527,7 +527,7 @@ window.AsenChatConfig = {
           <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}<i class="fa-regular fa-sparkles"></i></div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
-        <button class="asen-chat-close" type="button" aria-label="Close chat">&times;</button>
+        <button class="asen-chat-close" type="button" aria-label="Close chat">&minus;</button>
       </div>
 
       <div class="asen-chat-messages" aria-live="polite"></div>
