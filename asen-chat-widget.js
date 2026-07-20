@@ -344,6 +344,8 @@ window.AsenChatConfig = {
       border-radius: 16px;
       background: #fff;
       padding: 10px 10px 10px 10px;
+    height: 100%;
+    max-height: 84px;
     }
 
     .asen-chat-input-wrap:focus-within {
@@ -466,7 +468,7 @@ window.AsenChatConfig = {
       background: #fff;
       color: var(--asen-chat-accent);
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 6px 12px;
       font: inherit;
       font-size: 11px;
       cursor: pointer;
