@@ -137,8 +137,8 @@ window.AsenChatConfig = {
 
     .asen-chat-launcher-icon {
       flex: 0 0 auto;
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
       padding: 1rem;
       display: flex;
       align-items: center;
@@ -162,6 +162,7 @@ window.AsenChatConfig = {
       white-space: nowrap;
       overflow: hidden;
       padding-right: 0;
+      font-size: 18px;
       transition: max-width .45s ease, opacity .35s ease, padding-right .45s ease;
     }
 
