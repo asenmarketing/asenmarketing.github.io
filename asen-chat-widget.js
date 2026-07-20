@@ -524,7 +524,7 @@ window.AsenChatConfig = {
       <div class="asen-chat-header">
         <div>
           <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
-          <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}<i class="fa-regular fa-sparkles"></i></div>
+          <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}<i class="fa-solid fa-sparkles"></i></div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
         <button class="asen-chat-close" type="button" aria-label="Close chat">&minus;</button>
@@ -539,7 +539,7 @@ window.AsenChatConfig = {
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
         <div class="asen-chat-footer">
-          <div class="asen-chat-powered">Powered by <span class="asen-chat-compass"><i class="fa-regular fa-sparkles"></i>Compass</span> from Asen</div>
+          <div class="asen-chat-powered">Powered by <span class="asen-chat-compass"><i class="fa-solid fa-sparkles"></i>Compass</span> from Asen</div>
           <div class="asen-chat-disclaimer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
         </div>
       </form>
@@ -549,7 +549,7 @@ window.AsenChatConfig = {
       <span class="asen-chat-launcher-icon">${
         config.launcherIcon
           ? `<img src="${escapeHtml(config.launcherIcon)}" alt="" aria-hidden="true" />`
-          : '<i class="fa-regular fa-sparkles"></i>'
+          : '<i class="fa-solid fa-sparkles"></i>'
       }</span>
       <span class="asen-chat-launcher-label">${escapeHtml(config.launcherLabel)}</span>
     </button>
