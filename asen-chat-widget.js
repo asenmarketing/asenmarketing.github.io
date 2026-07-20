@@ -59,6 +59,7 @@ window.AsenChatConfig = {
       contactUrl: "",
       primaryColor: "#111111",
       accentColor: "#ffffff",
+      headerColor: "#1e2b3a",
       position: "right",
       zIndex: 999999,
       maxWidth: "380px",
@@ -87,6 +88,7 @@ window.AsenChatConfig = {
     .asen-chat-widget {
       --asen-chat-primary: ${config.primaryColor};
       --asen-chat-accent: ${config.accentColor};
+      --asen-chat-header-bg: ${config.headerColor};
       --asen-chat-bg: #ffffff;
       --asen-chat-text: #1f2937;
       --asen-chat-muted: #6b7280;
@@ -159,43 +161,44 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-header {
-      background: var(--asen-chat-accent);
+      background: var(--asen-chat-header-bg);
       color: #fff;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 12px;
+      padding: 20px 20px 18px;
+      display: block;
+      text-align: left;
       position: relative;
     }
 
     .asen-chat-header-title {
       margin: 0;
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11px;
+      font-weight: 600;
       line-height: 1.2;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.55;
     }
 
     .asen-chat-header-subtitle {
-      margin: 1rem 0 0;
-      font-size: 18px;
+      margin: 6px 0 0;
+      font-size: 21px;
       font-weight: 700;
-      opacity: 0.7;
+      opacity: 1;
     }
 
     .asen-chat-header-subtitle i {
-      font-size: 20px;
-      margin-right: 6px;
-      opacity: 0.7;
+      font-size: 18px;
+      margin-left: 6px;
+      color: var(--asen-chat-accent);
+      opacity: 1;
     }
-    
+
     .asen-chat-header-welcome {
-      margin: 0.5rem 0 0.5rem;
-      font-size: 15px;
-      font-weight: 600;
+      margin: 10px 0 0;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+      opacity: 0.75;
       max-width: 380px;
     }
 
@@ -295,19 +298,30 @@ window.AsenChatConfig = {
 
     .asen-chat-input-wrap {
       display: flex;
+      align-items: flex-end;
       gap: 8px;
+      border: 1px solid var(--asen-chat-border);
+      border-radius: 16px;
+      background: #fff;
+      padding: 10px 10px 10px 16px;
+      min-height: 64px;
+    }
+
+    .asen-chat-input-wrap:focus-within {
+      border-color: var(--asen-chat-primary);
+      box-shadow: 0 0 0 3px rgba(0,0,0,.08);
     }
 
 .asen-chat-input {
   width: 100%;
   min-width: 0;
-  border: 1px solid var(--asen-chat-border);
-  border-radius: 12px;
-  padding: 0.5rem;
+  border: 0;
+  border-radius: 0;
+  padding: 6px 0;
   font: inherit;
   font-size: 16px;
   color: var(--asen-chat-text);
-  background: #fff;
+  background: transparent;
   resize: none;
   overflow-y: auto;
   line-height: 1.5;
@@ -317,22 +331,26 @@ window.AsenChatConfig = {
 
     .asen-chat-input:focus {
       outline: none;
-      border-color: var(--asen-chat-primary);
-      box-shadow: 0 0 0 3px rgba(0,0,0,.08);
     }
 
     body button[type="submit"].asen-chat-send {
       appearance: none;
       border: 0;
-      border-radius: 11px;
-      background: var(--asen-chat-primary);
-      color: var(--asen-chat-accent);
-      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: var(--asen-chat-accent);
+      color: #fff;
+      padding: 0.5rem 1.4rem;
       font: inherit;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 16px !important;
       cursor: pointer;
       white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity .15s ease;
+    }
+
+    body button[type="submit"].asen-chat-send:hover {
+      opacity: 0.9;
     }
 
     .asen-chat-send[disabled] {
@@ -345,6 +363,27 @@ window.AsenChatConfig = {
       font-size: 11px;
       color: var(--asen-chat-muted);
       text-align: center;
+    }
+
+    .asen-chat-powered {
+      font-size: 12px;
+      color: var(--asen-chat-muted);
+      margin-bottom: 4px;
+    }
+
+    .asen-chat-compass {
+      font-weight: 700;
+      color: var(--asen-chat-text);
+    }
+
+    .asen-chat-compass i {
+      color: var(--asen-chat-accent);
+      margin-right: 4px;
+    }
+
+    .asen-chat-disclaimer {
+      font-size: 11px;
+      color: var(--asen-chat-muted);
     }
 
     .asen-chat-footer a {
@@ -380,13 +419,13 @@ window.AsenChatConfig = {
       background: #fff;
       color: var(--asen-chat-accent);
       border-radius: 8px;
-      padding: 8px 10px;
+      padding: 10px 12px;
       font: inherit;
       font-size: 16px;
       cursor: pointer;
       width: 100%;
       font-weight: 500;
-      text-wrap: balance;
+      text-align: left;
     }
     
     .asen-chat-quick-reply:hover {
@@ -441,7 +480,7 @@ window.AsenChatConfig = {
       <div class="asen-chat-header">
         <div>
           <div class="asen-chat-header-title">${escapeHtml(config.title)}</div>
-          <div class="asen-chat-header-subtitle"><i class="fa-regular fa-sparkles"></i> ${escapeHtml(config.subtitle)}</div>
+          <div class="asen-chat-header-subtitle">${escapeHtml(config.subtitle)}<i class="fa-regular fa-sparkles"></i></div>
           <div class="asen-chat-header-welcome">${escapeHtml(config.welcomeMessage || "")}</div>
         </div>
         <button class="asen-chat-close" type="button" aria-label="Close chat">&times;</button>
@@ -455,7 +494,10 @@ window.AsenChatConfig = {
           <textarea class="asen-chat-input" rows="1" placeholder="${escapeHtml(config.placeholder)}"></textarea>
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
-        <div class="asen-chat-footer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
+        <div class="asen-chat-footer">
+          <div class="asen-chat-powered">Powered by <span class="asen-chat-compass"><i class="fa-regular fa-sparkles"></i>Compass</span> from Asen</div>
+          <div class="asen-chat-disclaimer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
+        </div>
       </form>
     </div>
 
