@@ -407,6 +407,10 @@ window.AsenChatConfig = {
       text-align: center;
     }
 
+    .asen-chat-footer a {
+    color: var(--asen-chat-muted);
+    }
+
     .asen-chat-powered {
       font-size: 12px;
       color: var(--asen-chat-muted);
