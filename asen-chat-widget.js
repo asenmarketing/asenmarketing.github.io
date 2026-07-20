@@ -179,10 +179,10 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-panel {
-      width: min(calc(100vw - 32px), ${config.maxWidth});
-      height: min(90vh, calc(100vh - 100px));
+      width: min(calc(50vw - 32px), ${config.maxWidth});
+      height: min(70vh, 700px);
       background: var(--asen-chat-bg);
-      border: 1px solid var(--asen-chat-border);
+      border: none;
       border-radius: var(--asen-chat-radius);
       box-shadow: var(--asen-chat-shadow);
       display: none;
