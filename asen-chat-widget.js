@@ -403,7 +403,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-footer {
-      margin-top: 8px;
+      margin: 0 15px;
       font-size: 11px;
       color: var(--asen-chat-muted);
       text-align: center;
@@ -414,9 +414,9 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-powered {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--asen-chat-muted);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     .asen-chat-compass {
@@ -437,7 +437,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-disclaimer {
-      font-size: 11px;
+      font-size: 6px;
       color: var(--asen-chat-muted);
     }
 
