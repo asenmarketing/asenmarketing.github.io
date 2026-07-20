@@ -233,7 +233,7 @@ window.AsenChatConfig = {
 
     .asen-chat-header-welcome {
       margin: 10px 0 0;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 400;
       line-height: 1.5;
       opacity: 0.75;
@@ -276,7 +276,8 @@ window.AsenChatConfig = {
       max-width: 85%;
       border-radius: 16px;
       padding: 12px 14px;
-      font-size: 18px;
+      font-size: 13px;
+      font-weight: 600;
       line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
@@ -318,8 +319,8 @@ window.AsenChatConfig = {
       color: var(--asen-chat-accent);
       padding: 8px 10px;
       border-radius: 16px;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 11px;
+      font-weight: 400;
       width: 100%;
     }
 
