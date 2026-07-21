@@ -101,7 +101,7 @@ window.AsenChatConfig = {
       --asen-chat-bot-bg: #f3f4f6;
       --asen-chat-bot-text: #111827;
       --asen-chat-shadow: 0 12px 30px rgba(0,0,0,.16);
-      --asen-chat-radius: 16px;
+      --asen-chat-radius: 28px;
 
       font-family: var(--asen-chat-font);
       position: fixed;
