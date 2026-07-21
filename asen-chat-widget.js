@@ -416,6 +416,7 @@ window.AsenChatConfig = {
 
     .asen-chat-footer a {
     color: var(--asen-chat-muted);
+    text-decoration: underline;
     }
 
     .asen-chat-powered {
@@ -444,11 +445,6 @@ window.AsenChatConfig = {
     .asen-chat-disclaimer {
       font-size: 8px;
       color: var(--asen-chat-muted);
-    }
-
-    .asen-chat-footer a {
-      color: var(--asen-chat-accent) !important;
-      text-decoration: underline;
     }
 
     .asen-chat-typing {
