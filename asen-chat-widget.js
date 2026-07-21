@@ -346,7 +346,7 @@ window.AsenChatConfig = {
       background: #fff;
       padding: 10px 10px 10px 10px;
     height: 100%;
-    max-height: 84px;
+    max-height: 65px;
     }
 
     .asen-chat-input-wrap:focus-within {
@@ -366,8 +366,8 @@ window.AsenChatConfig = {
   resize: none;
   overflow-y: auto;
   line-height: 1.5;
-  min-height: 59px;
-  max-height: 59px;
+  min-height: 44px;
+  max-height: 44px;
   display: block;
   padding-left: 8px;
 }
@@ -403,7 +403,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-footer {
-      margin: 0 15px;
+      margin: 15px;
       font-size: 11px;
       color: var(--asen-chat-muted);
       text-align: center;
