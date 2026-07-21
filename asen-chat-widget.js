@@ -255,6 +255,11 @@ window.AsenChatConfig = {
       position: absolute;
       top: 0.5rem;
       right: 1rem;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    .asen-chat-close:hover {
+    opacity: 0.7;
     }
 
     .asen-chat-messages {
