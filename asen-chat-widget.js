@@ -211,7 +211,7 @@ window.AsenChatConfig = {
 
     .asen-chat-header-title {
       margin: 0;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: 0.08em;
@@ -235,7 +235,7 @@ window.AsenChatConfig = {
 
     .asen-chat-header-welcome {
       margin: 10px 0 0;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.5;
       opacity: 0.75;
@@ -326,7 +326,7 @@ window.AsenChatConfig = {
       color: var(--asen-chat-accent);
       padding: 8px 10px;
       border-radius: 16px;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 400;
       width: 100%;
     }
@@ -365,7 +365,7 @@ window.AsenChatConfig = {
   border: 0;
   border-radius: 0;
   font: inherit;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--asen-chat-text);
   background: transparent;
   resize: none;
@@ -390,7 +390,7 @@ window.AsenChatConfig = {
       padding: 0.5rem 1.4rem;
       font: inherit;
       font-weight: 600;
-      font-size: 11px !important;
+      font-size: 13px !important;
       cursor: pointer;
       white-space: nowrap;
       flex-shrink: 0;
@@ -409,7 +409,7 @@ window.AsenChatConfig = {
 
     .asen-chat-footer {
       margin: 15px;
-      font-size: 11px;
+      font-size: 13px;
       color: var(--asen-chat-muted);
       text-align: center;
     }
@@ -420,7 +420,7 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-powered {
-      font-size: 11px;
+      font-size: 13px;
       color: var(--asen-chat-muted);
       margin-bottom: 8px;
     }
@@ -477,7 +477,7 @@ window.AsenChatConfig = {
       border-radius: 8px;
       padding: 6px 12px;
       font: inherit;
-      font-size: 11px;
+      font-size: 13px;
       cursor: pointer;
       width: 100%;
       font-weight: 400;
