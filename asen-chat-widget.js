@@ -134,7 +134,11 @@ window.AsenChatConfig = {
       overflow: hidden;
       margin-left: auto;
       transition: background .15s ease, color .15s ease;
-      gap: 1rem;
+      gap: 0;
+    }
+
+    .asen-chat-launcher.is-expanded {
+    gap: 1rem;
     }
 
     .asen-chat-launcher-icon {
