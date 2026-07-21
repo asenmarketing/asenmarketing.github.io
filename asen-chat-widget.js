@@ -442,12 +442,12 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-disclaimer {
-      font-size: 6px;
+      font-size: 8px;
       color: var(--asen-chat-muted);
     }
 
     .asen-chat-footer a {
-      color: var(--asen-chat-accent);
+      color: var(--asen-chat-accent) !important;
       text-decoration: underline;
     }
 
