@@ -123,7 +123,7 @@ window.AsenChatConfig = {
       border-radius: 16px;
       background: var(--asen-chat-primary);
       color: var(--asen-chat-accent);
-      padding: 0.5rem;
+      padding: 0.75rem;
       font: inherit;
       font-size: 14px;
       font-weight: 500;
@@ -139,8 +139,8 @@ window.AsenChatConfig = {
 
     .asen-chat-launcher-icon {
       flex: 0 0 auto;
-      width: 70px;
-      height: 70px;
+      width: 40px;
+      height: 40px;
       padding: 0;
       display: flex;
       align-items: center;
