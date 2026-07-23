@@ -599,6 +599,22 @@ window.AsenChatConfig = {
   var input = root.querySelector(".asen-chat-input");
   var sendBtn = root.querySelector(".asen-chat-send");
 
+  function getChatSessionId() {
+    var key = "asenChatSessionId";
+    var existing = sessionStorage.getItem(key);
+
+    if (existing) return existing;
+
+    var id =
+      "chat_" +
+      Math.random().toString(36).slice(2) +
+      "_" +
+      Date.now().toString(36);
+
+    sessionStorage.setItem(key, id);
+    return id;
+  }
+
   function autoResizeInput() {
     input.style.height = "auto";
     input.style.height = Math.min(input.scrollHeight, 120) + "px";
@@ -899,6 +915,7 @@ window.AsenChatConfig = {
           message: message,
           messages: chatMessages.slice(-10),
           leadContext,
+          sessionId: getChatSessionId(),
         }),
       });
 
