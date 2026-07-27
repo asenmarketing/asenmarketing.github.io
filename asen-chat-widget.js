@@ -525,13 +525,11 @@ window.AsenChatConfig = {
       }
 
       .asen-chat-launcher {
-        width: 100%;
-        justify-content: center;
+        display: flex;
+        width: fit-content;
       }
 
-      .asen-chat-launcher-label {
-        max-width: 220px;
-        opacity: 1;
+      .asen-chat-launcher.is-expanded .asen-chat-launcher-label {
         padding-right: 12px;
       }
 
