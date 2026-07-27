@@ -545,7 +545,28 @@ window.AsenChatConfig = {
       }
     }
 
-    @media (min-width: 1500.02px) {
+    @media (min-width: 1024px) {
+      .asen-chat-header-title,
+      .asen-chat-header-welcome,
+      .asen-chat-message,
+      .asen-chat-link,
+      .asen-chat-input,
+      .asen-chat-footer,
+      .asen-chat-powered,
+      .asen-chat-quick-reply {
+        font-size: 16px;
+      }
+
+      body button[type="submit"].asen-chat-send {
+        font-size: 16px !important;
+      }
+
+      .asen-chat-disclaimer {
+        font-size: 11px;
+      }
+    }
+
+    @media (min-width: 1500px) {
       .asen-chat-header-title,
       .asen-chat-header-welcome,
       .asen-chat-launcher-label,
