@@ -185,7 +185,7 @@ window.AsenChatConfig = {
 
     .asen-chat-panel {
       width: min(calc(50vw - 32px), ${config.maxWidth});
-      height: min(75vh, 700px);
+      height: min(80vh, 700px);
       background: var(--asen-chat-bg);
       border: none;
       border-radius: var(--asen-chat-radius);
