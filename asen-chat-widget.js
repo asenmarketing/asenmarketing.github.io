@@ -563,15 +563,16 @@ window.AsenChatConfig = {
         </div>
         <div class="asen-chat-footer">
         ${
-          config.hidePoweredBy ??
-          `<div class="asen-chat-powered">Powered by ${
-            config.footerLogo
-              ? `<img class="asen-chat-compass-logo" src="${escapeHtml(config.footerLogo)}" alt="Compass" />`
-              : `<span class="asen-chat-compass"><i class="fa-solid fa-sparkles"></i>Lumi</span>`
-          } from Asen</div>
-          <div class="asen-chat-disclaimer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
-        </div>`
+          config.hidePoweredBy
+            ? ""
+            : `<div class="asen-chat-powered">Powered by ${
+                config.footerLogo
+                  ? `<img class="asen-chat-compass-logo" src="${escapeHtml(config.footerLogo)}" alt="Compass" />`
+                  : `<span class="asen-chat-compass"><i class="fa-solid fa-sparkles"></i>Lumi</span>`
+              } from Asen</div>`
         }
+          <div class="asen-chat-disclaimer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
+        </div>
       </form>
     </div>
 
