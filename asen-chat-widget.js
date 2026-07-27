@@ -506,6 +506,12 @@ window.AsenChatConfig = {
       40% { transform: scale(1); opacity: .85; }
     }
 
+    @media (max-width: 767.98px) {
+      .asen-chat-widget {
+        --asen-chat-radius: 21px;
+      }
+    }
+
     @media (max-width: 640px) {
       .asen-chat-widget {
         left: 12px !important;
@@ -515,6 +521,7 @@ window.AsenChatConfig = {
 
       .asen-chat-panel {
         width: 100%;
+        height: 90vh;
       }
 
       .asen-chat-launcher {
@@ -535,6 +542,27 @@ window.AsenChatConfig = {
 
       .asen-chat-message {
       font-size: 16px;
+      }
+    }
+
+    @media (min-width: 1024.02px) {
+      .asen-chat-header-title,
+      .asen-chat-header-welcome,
+      .asen-chat-message,
+      .asen-chat-link,
+      .asen-chat-input,
+      .asen-chat-footer,
+      .asen-chat-powered,
+      .asen-chat-quick-reply {
+        font-size: 16px;
+      }
+
+      body button[type="submit"].asen-chat-send {
+        font-size: 16px !important;
+      }
+
+      .asen-chat-disclaimer {
+        font-size: 11px;
       }
     }
   `;
