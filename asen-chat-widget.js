@@ -71,6 +71,7 @@ window.AsenChatConfig = {
       persistSession: true,
       footerLink: "",
       storageKey: "asenChatSession",
+      hidePoweredBy: true,
     },
     window.AsenChatConfig || {},
   );
@@ -561,13 +562,16 @@ window.AsenChatConfig = {
           <button class="asen-chat-send" type="submit">Send</button>
         </div>
         <div class="asen-chat-footer">
-          <div class="asen-chat-powered">Powered by ${
+        ${
+          config.hidePoweredBy ??
+          `<div class="asen-chat-powered">Powered by ${
             config.footerLogo
               ? `<img class="asen-chat-compass-logo" src="${escapeHtml(config.footerLogo)}" alt="Compass" />`
               : `<span class="asen-chat-compass"><i class="fa-solid fa-sparkles"></i>Lumi</span>`
           } from Asen</div>
           <div class="asen-chat-disclaimer">Our digital assistant's answers can be inaccurate. <a href="${escapeHtml(config.footerLink || "#")}" target="_blank" rel="noopener noreferrer">Read more here.</a></div>
-        </div>
+        </div>`
+        }
       </form>
     </div>
 
