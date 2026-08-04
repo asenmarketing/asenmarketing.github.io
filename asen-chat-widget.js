@@ -122,8 +122,8 @@ window.AsenChatConfig = {
       appearance: none;
       border: 0;
       border-radius: 16px;
-      background: var(--asen-chat-primary);
-      color: var(--asen-chat-accent);
+      background: var(--asen-chat-accent);
+      color: var(--asen-chat-primary);
       padding: 0.75rem;
       font: inherit;
       font-size: 14px;
@@ -180,8 +180,8 @@ window.AsenChatConfig = {
     }
 
     .asen-chat-launcher:hover {
-      background: var(--asen-chat-accent);
-      color: var(--asen-chat-primary);
+      background: var(--asen-chat-primary);
+      color: var(--asen-chat-accent);
     }
 
     .asen-chat-panel {
