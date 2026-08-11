@@ -200,6 +200,25 @@ window.AsenChatConfig = {
       display: flex;
       flex-direction: column;
       margin-bottom: 12px;
+      transform-origin: bottom ${config.position === "left" ? "left" : "right"};
+      animation: asen-chat-panel-in 220ms ease-out;
+    }
+
+    @keyframes asen-chat-panel-in {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .asen-chat-widget.is-open .asen-chat-panel {
+        animation: none;
+      }
     }
 
     .asen-chat-widget.is-open .asen-chat-launcher {
