@@ -260,11 +260,35 @@ window.AsenChatConfig = {
       position: absolute;
       top: 0.5rem;
       right: 1rem;
-      transition: opacity 150ms ease-in-out;
+      transition: color 150ms ease-in-out;
     }
 
     .asen-chat-close:hover {
-    opacity: 0.7;
+    color: color-mix(in srgb, currentColor 70%, transparent);
+    }
+
+    .asen-chat-close::after {
+      content: attr(aria-label);
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      padding: 5px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    .asen-chat-close:hover::after {
+      opacity: 1;
+      visibility: visible;
     }
 
     .asen-chat-messages {
@@ -487,6 +511,7 @@ window.AsenChatConfig = {
       width: 100%;
       font-weight: 400;
       text-align: left;
+      text-wrap: pretty;
     }
     
     .asen-chat-quick-reply:hover {
