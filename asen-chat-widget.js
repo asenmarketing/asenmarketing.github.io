@@ -57,6 +57,7 @@ window.AsenChatConfig = {
       launcherIcon: "https://asenmarketing.github.io/ask-asen.webp",
       launcherExpandDelay: 3000,
       autoOpenDelay: 5000, // set to 0 to disable auto-open
+      autoOpenSound: true,
       // footerLogo: "https://asenmarketing.github.io/compass-logo.svg",
       placeholder: "Ask a question...",
       servicesUrl: "",
@@ -1130,6 +1131,44 @@ window.AsenChatConfig = {
 
   restoreChatSession();
 
+  function playPopSound() {
+    if (!config.autoOpenSound) return;
+
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+
+      var ctx = new Ctx();
+
+      // Autoplay policy: the context stays suspended until the visitor has
+      // interacted with the page. No gesture yet — stay silent.
+      if (ctx.state !== "running") {
+        ctx.close();
+        return;
+      }
+
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      var now = ctx.currentTime;
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(340, now);
+      osc.frequency.exponentialRampToValueAtTime(740, now + 0.09);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.1, now + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.2);
+      osc.onended = function () {
+        ctx.close();
+      };
+    } catch (err) {}
+  }
+
   var autoOpenDelay = Number(config.autoOpenDelay);
   if (!isFinite(autoOpenDelay) || autoOpenDelay < 0) autoOpenDelay = 5000;
 
@@ -1147,6 +1186,7 @@ window.AsenChatConfig = {
           doneNow = !!sessionStorage.getItem("asenChatAutoOpenDone");
         } catch (err) {}
         if (doneNow) return;
+        playPopSound();
         openChat(true);
       }, launcherSettleDelay + autoOpenDelay);
     }
