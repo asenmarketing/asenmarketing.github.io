@@ -703,9 +703,14 @@ window.AsenChatConfig = {
 
   var launcher = root.querySelector(".asen-chat-launcher");
 
+  // Time until the launcher label finishes sliding out (expand delay +
+  // the .45s max-width transition). Auto-open waits on top of this.
+  var launcherSettleDelay = 0;
+
   if (config.launcherLabel) {
     var expandDelay = Number(config.launcherExpandDelay);
     if (!isFinite(expandDelay) || expandDelay < 0) expandDelay = 3000;
+    launcherSettleDelay = expandDelay + 450;
     setTimeout(function () {
       launcher.classList.add("is-expanded");
     }, expandDelay);
@@ -1143,7 +1148,7 @@ window.AsenChatConfig = {
         } catch (err) {}
         if (doneNow) return;
         openChat(true);
-      }, autoOpenDelay);
+      }, launcherSettleDelay + autoOpenDelay);
     }
   }
 
