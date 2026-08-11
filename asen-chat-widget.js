@@ -532,6 +532,7 @@ window.AsenChatConfig = {
       font-weight: 400;
       text-align: left;
       text-wrap: pretty;
+      transition: color .15s ease, background .15s ease;
     }
     
     .asen-chat-quick-reply:hover {
