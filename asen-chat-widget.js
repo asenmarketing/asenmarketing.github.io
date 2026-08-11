@@ -134,8 +134,14 @@ window.AsenChatConfig = {
       align-items: center;
       overflow: hidden;
       margin-left: auto;
-      transition: background .15s ease, color .15s ease;
+      transition: background .15s ease, color .15s ease, transform .15s ease-in-out;
       gap: 0;
+    }
+
+    .asen-chat-launcher:hover {
+      background: var(--asen-chat-accent);
+      color: var(--asen-chat-primary);
+      transform: scale(1.05);
     }
 
     .asen-chat-launcher.is-expanded {
@@ -177,11 +183,6 @@ window.AsenChatConfig = {
       max-width: 220px;
       opacity: 1;
       padding-right: 0;
-    }
-
-    .asen-chat-launcher:hover {
-      background: var(--asen-chat-accent);
-      color: var(--asen-chat-primary);
     }
 
     .asen-chat-panel {
