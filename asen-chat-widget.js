@@ -56,6 +56,7 @@ window.AsenChatConfig = {
       launcherLabel: "Chat",
       launcherIcon: "https://asenmarketing.github.io/ask-asen.webp",
       launcherExpandDelay: 3000,
+      autoOpenDelay: 5000, // set to 0 to disable auto-open
       // footerLogo: "https://asenmarketing.github.io/compass-logo.svg",
       placeholder: "Ask a question...",
       servicesUrl: "",
@@ -207,7 +208,7 @@ window.AsenChatConfig = {
     @keyframes asen-chat-panel-in {
       from {
         opacity: 0;
-        transform: translateY(14px) scale(0.97);
+        transform: translateY(14px) scale(0.8);
       }
       to {
         opacity: 1;
@@ -754,9 +755,13 @@ window.AsenChatConfig = {
     );
   }
 
-  function openChat() {
+  function openChat(isAutoOpen) {
     state.isOpen = true;
     root.classList.add("is-open");
+
+    try {
+      sessionStorage.setItem("asenChatAutoOpenDone", "true");
+    } catch (err) {}
 
     if (!messagesEl.dataset.initialized) {
       messagesEl.dataset.initialized = "true";
@@ -769,7 +774,7 @@ window.AsenChatConfig = {
     saveChatSession();
 
     setTimeout(function () {
-      input.focus();
+      if (!isAutoOpen) input.focus();
       messagesEl.scrollTop = messagesEl.scrollHeight;
     }, 30);
   }
@@ -1119,7 +1124,31 @@ window.AsenChatConfig = {
 
   restoreChatSession();
 
-  launcher.addEventListener("click", openChat);
+  var autoOpenDelay = Number(config.autoOpenDelay);
+  if (!isFinite(autoOpenDelay) || autoOpenDelay < 0) autoOpenDelay = 5000;
+
+  if (autoOpenDelay > 0 && !state.isOpen && !chatMessages.length) {
+    var autoOpenDone = false;
+    try {
+      autoOpenDone = !!sessionStorage.getItem("asenChatAutoOpenDone");
+    } catch (err) {}
+
+    if (!autoOpenDone) {
+      setTimeout(function () {
+        if (state.isOpen) return;
+        var doneNow = false;
+        try {
+          doneNow = !!sessionStorage.getItem("asenChatAutoOpenDone");
+        } catch (err) {}
+        if (doneNow) return;
+        openChat(true);
+      }, autoOpenDelay);
+    }
+  }
+
+  launcher.addEventListener("click", function () {
+    openChat();
+  });
   closeBtn.addEventListener("click", closeChat);
 
   form.addEventListener("submit", function (e) {
