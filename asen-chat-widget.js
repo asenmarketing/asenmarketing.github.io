@@ -87,6 +87,7 @@ window.AsenChatConfig = {
     isOpen: false,
     isSending: false,
     sessionId: null,
+    wasAutoOpened: false,
   };
 
   var style = document.createElement("style");
@@ -762,9 +763,25 @@ window.AsenChatConfig = {
     );
   }
 
+  function pushDataLayerEvent(eventName, data) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: eventName }, data || {}));
+    } catch (err) {}
+  }
+
+  function countUserMessages() {
+    return chatMessages.filter(function (msg) {
+      return msg && msg.role === "user";
+    }).length;
+  }
+
   function openChat(isAutoOpen) {
     state.isOpen = true;
+    state.wasAutoOpened = !!isAutoOpen;
     root.classList.add("is-open");
+
+    pushDataLayerEvent(isAutoOpen ? "asen_chat_auto_open" : "asen_chat_open");
 
     try {
       sessionStorage.setItem("asenChatAutoOpenDone", "true");
@@ -789,6 +806,13 @@ window.AsenChatConfig = {
   function closeChat() {
     state.isOpen = false;
     root.classList.remove("is-open");
+
+    pushDataLayerEvent(
+      state.wasAutoOpened ? "asen_chat_auto_open_close" : "asen_chat_close",
+      { chat_messages_sent: countUserMessages() },
+    );
+    state.wasAutoOpened = false;
+
     saveChatSession();
   }
 
