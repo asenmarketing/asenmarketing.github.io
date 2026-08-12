@@ -1205,6 +1205,7 @@ window.AsenChatConfig = {
     if (!autoOpenDone) {
       setTimeout(function () {
         if (state.isOpen) return;
+        if (window.innerWidth <= 640) return;
         var doneNow = false;
         try {
           doneNow = !!sessionStorage.getItem("asenChatAutoOpenDone");
