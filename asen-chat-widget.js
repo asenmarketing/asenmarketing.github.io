@@ -562,7 +562,7 @@ window.AsenChatConfig = {
 
     @media (max-width: 640px) {
       .asen-chat-widget {
-        left: 12px !important;
+      width: fit-content;
         right: 12px !important;
         bottom: 12px;
       }
